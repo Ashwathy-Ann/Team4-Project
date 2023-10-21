@@ -4,38 +4,81 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Profile</title>
+        <title>Profile Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body {
+                background-image: url('https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            }
+            </style>
+            
+</head>
     </head>
-    <body>
-        <h2>Profile</h2>
-        <a href="{% url 'logout' %}">logout</a>
-       
-        <h2>hello: {{ user.username }}</h2>
-        <h3>email: {{ user.email }}</h3>
-        <div class="container">
-            <table class="table table-striped">
-            <tr>
-                <th>Job Title</th>
-                <th>Company</th>
-                <th>Closing Date</th>
-                
-            </tr>
-            {% for i in job %}
-            <tr>
-                <td>{{i.job_name}}</td>
-                <td>{{i.company}}</td>
-                <td>{{i.last_date}}</td>
-                
-            </tr>
-        {% endfor %}
-            </table>
-        </div>
+    <body >
+
+        <div class="p-3 bg-light text-dark text-center">
+            <h1>My Profile</h1>
+            <p>Hello {{ user.username }}, Good to see you!</p> 
+          </div>
+          
+          <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+            <div class="container-fluid">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'logout' %}">Home Page</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'logout' %}">LogOut</a>
+                </li>
+                <li class="nav-item">
+                    <div class="container ">
+  
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            About
+                          </button>
+                          <ul class="dropdown-menu">
+                           
+                            <li><span class="dropdown-item-text">Username: {{ user.username }}</span></li>
+                            <li><span class="dropdown-item-text">Email: {{ user.email }}</span></li>
+                            <li><a class="dropdown-item-text" href="#">Reset Password</a></li>
+                           
+                          </ul>
+                        </div>
+                      </div>
+                  </li>
+
+              </ul>
+              
+            </div>
+          </nav>
+        
         <script src="" async defer></script>
+        
+        <div class="container mt-3">         
+            <table class="table table-light table-hover">
+                <thead class="table-active">
+                <tr>
+                    <th>Job</th>
+                    <th>Company</th>
+                    <th>Closing Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in Job %}
+                  <tr>
+                    <td>{{i.job_name}}</td>
+                    <td>{{i.company}}</td>
+                    <td>{{i.last_date}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
     </body>
 </html>
