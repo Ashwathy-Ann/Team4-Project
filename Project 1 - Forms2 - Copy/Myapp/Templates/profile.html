@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Profile</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <h2>Profile</h2>
+        <a href="{% url 'logout' %}">logout</a>
+       
+        <h2>hello: {{ user.username }}</h2>
+        <h3>email: {{ user.email }}</h3>
+        <div class="container">
+            <table class="table table-striped">
+            <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Closing Date</th>
+                
+            </tr>
+            {% for i in job %}
+            <tr>
+                <td>{{i.job_name}}</td>
+                <td>{{i.company}}</td>
+                <td>{{i.last_date}}</td>
+                
+            </tr>
+        {% endfor %}
+            </table>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
