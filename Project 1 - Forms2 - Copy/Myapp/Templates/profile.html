@@ -20,7 +20,9 @@
     </head>
     <body >
 
-        <div class="p-3 bg-light text-dark text-center">
+      <div class="p-2  text-light text-center" style="background-color: #3F2305">
+          
+          
             <h1>My Profile</h1>
             <p>Hello {{ user.username }}, Good to see you!</p> 
           </div>
@@ -53,10 +55,15 @@
                   </li>
 
               </ul>
-              
+              <form class="d-flex" action="" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" name="job_name">
+                <button class="btn btn-outline-light btn-white" type="submit">Search</button>
+              </form>
+          
             </div>
           </nav>
         
+
         <script src="" async defer></script>
         
         <div class="container mt-3">         
@@ -82,3 +89,4 @@
 
     </body>
 </html>
+
